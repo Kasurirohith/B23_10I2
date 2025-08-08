@@ -1,0 +1,251 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyN9NKfeslePqkqAJvF3LHDz",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Kasurirohith/B23_10I2/blob/main/10I2-B23-LAB2\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "id": "l_8DIzZgpN6I"
+      },
+      "outputs": [],
+      "source": [
+        "import numpy as np\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "marks = np.array([\n",
+        "    [78, 85, 90],\n",
+        "    [60, 72, 68],\n",
+        "    [92, 88, 95],\n",
+        "    [45, 55, 50],\n",
+        "    [89, 94, 91]\n",
+        "])\n",
+        "\n",
+        "print(\"Student Marks (Rows = Students, Columns = Subjects):\\n\", marks)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "EbQNgFrSpeSD",
+        "outputId": "dcf5bea2-4687-4722-e3ec-e992d18383b0"
+      },
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Student Marks (Rows = Students, Columns = Subjects):\n",
+            " [[78 85 90]\n",
+            " [60 72 68]\n",
+            " [92 88 95]\n",
+            " [45 55 50]\n",
+            " [89 94 91]]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(\"\\nAverage marks of each student:\", np.mean(marks, axis=1))\n",
+        "print(\"Average marks per subject:\", np.mean(marks, axis=0))\n",
+        "print(\"\\nMinimum marks of each student:\", np.min(marks, axis=1))\n",
+        "print(\"Maximum marks of each student:\", np.max(marks, axis=1))\n",
+        "print(\"\\nMinimum marks per subject:\", np.min(marks, axis=0))\n",
+        "print(\"Maximum marks per subject:\", np.max(marks, axis=0))\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "JQcK4i73pi85",
+        "outputId": "7ed86cdd-e1fb-4e70-b551-c91271e23724"
+      },
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\n",
+            "Average marks of each student: [84.33333333 66.66666667 91.66666667 50.         91.33333333]\n",
+            "Average marks per subject: [72.8 78.8 78.8]\n",
+            "\n",
+            "Minimum marks of each student: [78 60 88 45 89]\n",
+            "Maximum marks of each student: [90 72 95 55 94]\n",
+            "\n",
+            "Minimum marks per subject: [45 55 50]\n",
+            "Maximum marks per subject: [92 94 95]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(\"\\n Marks of Student 1:\", marks[0])\n",
+        "print(\" Marks of Student 3:\", marks[2])\n",
+        "print(\" Marks of Student 5:\", marks[4])\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "CZ_Dy5Ylps0X",
+        "outputId": "adde08e8-747b-41d4-9e9e-d5a982f266fe"
+      },
+      "execution_count": 5,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\n",
+            " Marks of Student 1: [78 85 90]\n",
+            " Marks of Student 3: [92 88 95]\n",
+            " Marks of Student 5: [89 94 91]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(\"\\nBoolean Mask for marks > 80:\\n\", marks > 80)\n",
+        "students_above_80 = marks[np.any(marks > 80, axis=1)]\n",
+        "\n",
+        "print(\"\\n Students who scored above 80 in any subject:\\n\", students_above_80)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "JjOPMykSpxLt",
+        "outputId": "e931ce79-7bf0-4152-844b-79eca0d8ea59"
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\n",
+            "Boolean Mask for marks > 80:\n",
+            " [[False  True  True]\n",
+            " [False False False]\n",
+            " [ True  True  True]\n",
+            " [False False False]\n",
+            " [ True  True  True]]\n",
+            "\n",
+            " Students who scored above 80 in any subject:\n",
+            " [[78 85 90]\n",
+            " [92 88 95]\n",
+            " [89 94 91]]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "reshaped = marks.T\n",
+        "print(\"\\n Reshaped Array (Subjects as Rows, Students as Columns):\\n\", reshaped)\n",
+        "\n",
+        "print(\"\\n Subject-wise Average Marks:\", np.mean(reshaped, axis=1))\n",
+        "print(\" Subject-wise Minimum Marks:\", np.min(reshaped, axis=1))\n",
+        "print(\" Subject-wise Maximum Marks:\", np.max(reshaped, axis=1))\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "73lrALTlp3RE",
+        "outputId": "c73df42d-a4aa-4809-a27a-44f3c37fa30b"
+      },
+      "execution_count": 7,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\n",
+            " Reshaped Array (Subjects as Rows, Students as Columns):\n",
+            " [[78 60 92 45 89]\n",
+            " [85 72 88 55 94]\n",
+            " [90 68 95 50 91]]\n",
+            "\n",
+            " Subject-wise Average Marks: [72.8 78.8 78.8]\n",
+            " Subject-wise Minimum Marks: [45 55 50]\n",
+            " Subject-wise Maximum Marks: [92 94 95]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(\"\"\" Analysis:\n",
+        "-----------------------------\n",
+        "- Student 3 and Student 5 have excellent marks in all subjects.\n",
+        "- Student 4 has consistently low marks and needs improvement.\n",
+        "- Subject 3 has the highest overall performance among students.\n",
+        "- Boolean indexing helped identify top-performing students.\n",
+        "- Reshaping the array makes it easy to evaluate subject-wise statistics.\n",
+        "\"\"\")\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "AJbpYpNWp_IQ",
+        "outputId": "a188de66-5a89-4700-c4f9-37c67a133552"
+      },
+      "execution_count": 9,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            " Analysis:\n",
+            "-----------------------------\n",
+            "- Student 3 and Student 5 have excellent marks in all subjects.\n",
+            "- Student 4 has consistently low marks and needs improvement.\n",
+            "- Subject 3 has the highest overall performance among students.\n",
+            "- Boolean indexing helped identify top-performing students.\n",
+            "- Reshaping the array makes it easy to evaluate subject-wise statistics.\n",
+            "\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
