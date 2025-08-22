@@ -1,0 +1,226 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPptlISnVKtsp0zDeSlbsuX",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Kasurirohith/B23_10I2/blob/main/lab-assignment\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ueryXOel_Oua",
+        "outputId": "938aa529-d0d2-49c5-86d2-0c02dc6370fa"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Data written successfully\n"
+          ]
+        }
+      ],
+      "source": [
+        "fp=open(\"example.txt\",\"w\")\n",
+        "fp.write(\"Hello, B.Tech students!\\n\")\n",
+        "fp.write(\"this is file handling in python.\\n\")\n",
+        "fp.write(\"sr university\")\n",
+        "fp.write(\"kasuri rohith\")\n",
+        "\n",
+        "fp.close()\n",
+        "print(\"Data written successfully\")\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "file = open(\"example.txt\", \"r\")\n",
+        "context = file.read()\n",
+        "print(\"file context:\\n\", context)\n",
+        "file.close()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "SzbBaL-x_TR5",
+        "outputId": "14504bc0-332f-426f-a3dc-60e34869b00a"
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "file context:\n",
+            " Hello, B.Tech students!\n",
+            "this is file handling in python.\n",
+            "sr universitykasuri rohith\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "file = open(\"example.txt\", \"r\")\n",
+        "\n",
+        "line1 = file.readline()\n",
+        "print(\"first line:\\n\", line1)\n",
+        "\n",
+        "line2 = file.readline()\n",
+        "print(\"second line:\\n\", line2)\n",
+        "file.close()\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "zAEsH3Z0_VuT",
+        "outputId": "aae08bf7-50ff-4184-8f53-0e65d8f85be3"
+      },
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "first line:\n",
+            " Hello, B.Tech students!\n",
+            "\n",
+            "second line:\n",
+            " this is file handling in python.\n",
+            "\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "file = open(\"example.txt\", \"r\")\n",
+        "lines = file.readlines()\n",
+        "print(\"All lines as List:\", lines)\n",
+        "file.close()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "vQmekgjB_Z-V",
+        "outputId": "f2d45490-bbb9-4e86-d20f-7c4a5508ede6"
+      },
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "All lines as List: ['Hello, B.Tech students!\\n', 'this is file handling in python.\\n', 'sr universitykasuri rohith']\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "file = open(\"example.txt\", \"a\")\n",
+        "file.write(\"appending new data...\\n\")\n",
+        "file.close()"
+      ],
+      "metadata": {
+        "id": "J1FqKK4f_cU6"
+      },
+      "execution_count": 5,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "with open(\"example.txt\", \"r\") as fp:\n",
+        "    data = fp.read()\n",
+        "    print(data)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "NhqgGckw_ef3",
+        "outputId": "f8ce62c2-31ca-4fe8-ee89-46592ce80a1c"
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Hello, B.Tech students!\n",
+            "this is file handling in python.\n",
+            "sr universitykasuri rohithappending new data...\n",
+            "\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import csv\n",
+        "\n",
+        "\n",
+        "with open(\"data.csv\", \"w\", newline=\"\") as fp:\n",
+        "    wr = csv.writer(fp)\n",
+        "    wr.writerow([\"name\", \"age\", \"course\"])\n",
+        "    wr.writerow([\"kasuri rohith\", \"21\", \"cse\"])\n",
+        "\n",
+        "with open(\"data.csv\", \"r\") as fp:\n",
+        "    re = csv.reader(fp)\n",
+        "    for row in re:\n",
+        "        print(row)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "CnT7J6VV_iPp",
+        "outputId": "f4d2eea2-c893-47a8-d6ef-c94e5af3e4d7"
+      },
+      "execution_count": 7,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "['name', 'age', 'course']\n",
+            "['kasuri rohith', '21', 'cse']\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
